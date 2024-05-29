@@ -6,4 +6,5 @@ def solution(num, k):
         elif str(k) not in num :
             return -1
         
-            
+
+    
