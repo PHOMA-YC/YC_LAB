@@ -1,17 +1,19 @@
 def solution(food):
-    food_copy = list(map(lambda x: x//2, food)) #--> i는 음식, idx는 먹는음식의 갯수
-    answer = ''
+    food_list = [1]
     result = ''
-    # 반 짤라서 앞배열 생성 후 뒤집어서 붙여
-    for idx, i in enumerate(food):
-        if i <= 1:
-            continue
+    
+    for i in food[1:]:
+        if i % 2 == 0 :
+            food_list.append(i)
         else:
-            answer += str(idx) * food_copy[idx]
+            food_list.append(i-1)
             
-    result += answer
-    result += '0'
-    result += answer[::-1]
-
-    return result
-            
+    for idx, i in enumerate(food_list[1:]):
+        if i == 0 :
+            continue
+        else :        
+            result += str(idx+1) * (i // 2)
+        
+    reverse_result = result[::-1]
+    
+    return result + '0' + reverse_result
